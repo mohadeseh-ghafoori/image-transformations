@@ -7,4 +7,7 @@ cv.imshow("gray scale image", gray_img)
 #blur image
 blurred_img=cv.GaussianBlur(gray_img, (3,3),cv.BORDER_DEFAULT)
 cv.imshow("blurred image",blurred_img)
+#edge detection
+canny=cv.Canny(gray_img,50,100)
+cv.imshow("canny edge", canny)
 cv.waitKey(0)
