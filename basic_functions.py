@@ -19,4 +19,7 @@ cv.imshow("eroded image",eroded_img)
 #scaling 
 resized_img=cv.resize(img,None,fx=2,fy=3) # or cv.resize(img,(500,500),interpolation=cv.INTER_AREA)
 cv.imshow("resized image",resized_img)
+#crop
+cropped_img=img[100:150,20:100]
+cv.imshow("cropped image",cropped_img)
 cv.waitKey(0)
