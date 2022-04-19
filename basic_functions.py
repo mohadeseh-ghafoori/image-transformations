@@ -44,8 +44,11 @@ def rotation(img,angle,rotpoint=None):
     #        	[np.sin(angle), np.cos(angle), 0],
     #        	[0, 0, 1]])
     #return cv.warpPerspective(img,rot_mx, (width,height))
-rotated_img=rotation(img,45)
+rotated_img=rotation(img,45) #positive angles are counter clockwise
 #note: if you rotated_rotated_im=rotation(rotated_img,45), it won't get you 90 degree rotation, some balck prts will be introduced to image
 #when it's rotated, so that black part will be rotated as a part of this process, and does not lead to 90 degree rotation
 cv.imshow("rotated image",rotated_img)
+#flip
+flipped_img=cv.flip(img,0)  #0 --> flip around x-axis   1--> flip around y-axis   -1--> flip around both axes 
+cv.imshow("flipped img",flipped_img)
 cv.waitKey(0)
