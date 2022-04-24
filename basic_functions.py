@@ -51,4 +51,19 @@ cv.imshow("rotated image",rotated_img)
 #flip
 flipped_img=cv.flip(img,0)  #0 --> flip around x-axis   1--> flip around y-axis   -1--> flip around both axes 
 cv.imshow("flipped img",flipped_img)
+# Shear
+width,height = img.shape[:2]
+x_axis = np.float32([[1, 0.7, 0],
+                      [0, 1 ,  0],
+                      [0, 0 ,  1]])
+y_axis = np.float32([[1  , 0, 0],
+                      [0.2, 1, 0],
+                      [0  , 0, 1]])
+sheared_x_img = cv.warpPerspective(img, x_axis, (int(height*1.5),int(width*1.5)))
+sheared_y_img = cv.warpPerspective(img, y_axis, (int(height*1.5),int(width*1.5)))
+
+cv.namedWindow('sheared x-axis', cv.WINDOW_NORMAL)
+cv.imshow('sheared x-axis', sheared_x_img)
+cv.namedWindow('sheared y-axis', cv.WINDOW_NORMAL)
+cv.imshow('sheared y-axis', sheared_y_img)
 cv.waitKey(0)
