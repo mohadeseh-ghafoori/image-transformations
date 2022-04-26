@@ -11,10 +11,17 @@ cv.imshow("blurred image",blurred_img)
 #edge detection canny
 canny=cv.Canny(gray_img,50,100)
 cv.imshow("canny edge", canny)
-#edge detection sobel
+#edge detection laplacian
 lap=cv.Laplacian(gray_img,cv.CV_64F)
 lap=np.uint8(np.absolute(lap))
 cv.imshow("laplacian edge detection",lap)
+#edge detection sobel
+sobelx=cv.Sobel(gray_img,cv.CV_64F,1,0)
+sobely=cv.Sobel(gray_img,cv.CV_64F,0,1)
+cv.imshow("sobel y",sobely)
+cv.imshow("sobel x",sobelx)
+combined_sobel=cv.bitwise_or(sobelx,sobely)
+cv.imshow("sobel",combined_sobel)
 #dilate : thicken edges 
 dilated_img=cv.dilate(canny,(7,7),iterations=10)
 cv.imshow("dilated image", dilated_img)
